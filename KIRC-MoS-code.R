@@ -5,6 +5,7 @@ tumor.path <- "set your own path";setwd(tumor.path) #create dir
 data.path   <- file.path(tumor.path, "InputData")
 fig1.path    <- file.path(tumor.path, "Figure1")
 fig2.path    <- file.path(tumor.path, "Figure2")
+fig3.path    <- file.path(tumor.path, "Figure3")
 fig5.path    <- file.path(tumor.path, "Figure5")
 fig6.path    <- file.path(tumor.path, "Figure6")
 figS.path    <- file.path(tumor.path, "FigureS")
@@ -15,6 +16,7 @@ if (!file.exists(tumor.path)) { dir.create(tumor.path) }
 if (!file.exists(data.path)) { dir.create(data.path) }
 if (!file.exists(fig1.path)) { dir.create(fig1.path) }
 if (!file.exists(fig2.path)) { dir.create(fig2.path) }
+if (!file.exists(fig3.path)) { dir.create(fig3.path) }
 if (!file.exists(fig5.path)) { dir.create(fig5.path) }
 if (!file.exists(fig6.path)) { dir.create(fig6.path) }
 if (!file.exists(figS.path)) { dir.create(figS.path) }
@@ -68,6 +70,7 @@ plotdata <- getStdiz(data       = indata,
                      centerFlag = c(T,T,T,T,F), # no center for mutation
                      scaleFlag  = c(T,T,T,T,F)) # no scale for mutation
 
+feat   <- iClusterBayes.res$feat.res
 feat1  <- feat[which(feat$dataset == "mRNA"),][1:10,"feature"] 
 feat2  <- feat[which(feat$dataset == "lncRNA"),][1:10,"feature"]
 feat3  <- feat[which(feat$dataset == "cna"),][1:10,"feature"]
@@ -189,8 +192,6 @@ library("org.Hs.eg.db")
 library("enrichplot")
 library("ggplot2")
 
-print(gsea.up$gsea.list$CS1[1:6,])
-
 Go1<- pairwise_termsim(gsea.up$gsea.list$CS1)
 
 pdf(file=file.path(figS.path,"Go-net-CS1.pdf"),width = 10,height = 8)
@@ -256,18 +257,8 @@ gsva.res <-
 ####Figure 2C-D######
 #--------immune checkpoints 3 group
 library(ggpubr)
-finalsam<-cmoic.KIRC$clust.res$samID
 
-ICB<-tpm[c("PDCD1","CTLA4"),finalsam]
-ICB<-log(ICB+1)
-
-output<-tpm[,finalsam]
-group<-as.data.frame(cmoic.KIRC$clust.res)
-
-#write.table(output,"expr225.txt",sep = "\t",row.names = T,col.names = NA,quote = F)
-#write.table(group,"group225.txt",sep = "\t",row.names = T,col.names = NA,quote = F)
-
-ICB<-cbind(t(ICB),group)
+ICB<-read.table(file.path(data.path,"CTLA4_PD1_expr.txt"),header=T,sep="\t",row.names=1,check.names=F)
 
 p <- ggboxplot(ICB, x = "clust", y = "CTLA4",
                color = "clust", palette = c("#2EC4B6","#E71D36","#FF9F1C"),
@@ -335,7 +326,7 @@ pheatmap(tmp, cellwidth = 30, cellheight = 30,
            annotation_row = data.frame(pvalue=c("Nominal p value","Nominal p value","Nominal p value","Bonferroni corrected","Bonferroni corrected","Bonferroni corrected"),row.names = rownames(tmp)),
            annotation_colors = list(pvalue=c("Nominal p value"=lightgrey,"Bonferroni corrected"=cherry)),
            filename = file.path(fig2.path, "Figure 2E.heatmap_submap.pdf"))
-
+dev.off()
 #####Figure 2F#######
 #----------------CheckMate-prepare validate cohort
 load("./InputData/TCGA.marker.rda")
@@ -363,7 +354,6 @@ IMout<-cbind(CheckMate.clin,IMclust)
 
 # Chi-square test
 test.data<-print(table(IMout$clust,IMout$Benefit))
-ax<-chisq.test(test.data)$p.value
 
 # Ordering and subsetting
 test.data2 <- data.frame(test.data)
@@ -375,8 +365,7 @@ subsets <- lapply(1:3, function(i) {
   return(subset)
 })
 # Combine subsets
-test.data3<-rbind.data.frame(subset1,subset2,subset3)
-test.data3
+test.data3<-do.call(rbind, subsets)
 
 # Generate the plot
 p<- ggplot(test.data3,aes(x=Var1, y=pct, fill=Var2)) + 
@@ -409,7 +398,7 @@ Miao.ntp.pred <- runNTP(expr      = Miao.expr,
                         scale     = TRUE, # scale input data (by default)
                         center    = TRUE, # center input data (by default)
                         doPlot    = TRUE, # to generate heatmap
-                        fig.name  = "Figure 2F. NTP HEATMAP FOR Miao",
+                        fig.name  = "Figure 2G. NTP HEATMAP FOR Miao",
                         fig.path  = fig2.path) 
 
 
@@ -420,7 +409,7 @@ Miaoclust <- Miao.ntp.pred$clust.res[merge, ]
 Miaoclust<-cbind(Miao.clin,Miaoclust)
 
 # Chi-square test
-test.data<-print(table(Miaoout$clust,Miaoout$response_category))
+test.data<-print(table(Miaoclust$clust,Miaoclust$response_category))
 ax<-chisq.test(test.data)$p.value
 
 # Ordering and subsetting
@@ -452,18 +441,14 @@ pdf(file.path(fig2.path,"Figure 2G. Miao Immunotherapy response.pdf"), width=5,h
 p
 dev.off()
 
-#--------------------------#
-#----------Figure 3--------#
-#--------------------------#
-
-
 
 #--------------------------#
 #----------Figure 5--------#
 #--------------------------#
+load("./InputData/TCGA_KIRC.tpm.rda")
 ####Figure 5A####
 drug.KIRC <- compDrugsen(moic.res    = cmoic.KIRC,
-                         norm.expr   = log2(tpm+1)[,cmoic.KIRC$clust.res$samID], # double guarantee sample order
+                         norm.expr   = tpm[,cmoic.KIRC$clust.res$samID], # double guarantee sample order
                          drugs       = c("Sunitinib"), # a vector of names of drug in GDSC
                          tissueType  = "all", # choose specific tissue type to construct ridge regression model
                          test.method = "nonparametric", # statistical testing method
@@ -684,7 +669,7 @@ load("./InputData/PI3KAKT inh predi.rda")
 
 #适合展示两种药物
 p1 <- plot_grid(plotp[[1]],plotp[[2]],nrow = 1) # title可以AI下拉到合适位置，就如例文所示
-
+p1
 ggsave(file.path(fig5.path,"Figure 5E. boxplot of predicted IC50.pdf"), width = 8, height = 4)
 
 
