@@ -68,7 +68,6 @@ plotdata <- getStdiz(data       = indata,
                      centerFlag = c(T,T,T,T,F), # no center for mutation
                      scaleFlag  = c(T,T,T,T,F)) # no scale for mutation
 
-feat   <- iClusterBayes.res$feat.res
 feat1  <- feat[which(feat$dataset == "mRNA"),][1:10,"feature"] 
 feat2  <- feat[which(feat$dataset == "lncRNA"),][1:10,"feature"]
 feat3  <- feat[which(feat$dataset == "cna"),][1:10,"feature"]
