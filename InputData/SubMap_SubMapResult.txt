@@ -1,0 +1,38 @@
+*** Subbclass Mappping Results ***
+
+input.data.A:  /opt/gpcloud/gp_home/users/jalenmeng/uploads/tmp/run4111925770053415160.tmp/datasetA.file/1/Immune2.for.SubMap.gct
+input.data.B:  /opt/gpcloud/gp_home/users/jalenmeng/uploads/tmp/run2773462303979613628.tmp/datasetB.file/2/skcm.immunotherapy.for.SubMap.gct
+# of intersection genes:  759
+input.cls.A:  /opt/gpcloud/gp_home/users/jalenmeng/uploads/tmp/run2851943028117678416.tmp/classA.file/3/Immune2.for.SubMap.cls
+input.cls.B:  /opt/gpcloud/gp_home/users/jalenmeng/uploads/tmp/run1194652644645957709.tmp/classB.file/4/skcm.immunotherapy.for.SubMap.cls
+# of marker genes:  100
+# of permutation for nominal-p of ES:  100
+# of permutation for nominal-p of Fisher's statistics:  1000
+SNR weight for ES (1=yes, 0=no):  1
+choice of null distribution:  pool
+p-value correction method (for Fisher's statistics):  Bonferroni
+
+$SA.matrix
+   B1 B2 B3         B4
+A1  1  1  1 1.00000000
+A2  1  1  1 1.00000000
+A3  1  1  1 0.08391608
+
+$nominal.p.matrix.Fisher
+          B1        B2        B3          B4
+A1 0.9450549 0.1398601 0.8671329 0.346653347
+A2 0.1458541 0.2227772 0.3136863 0.728271728
+A3 0.7942058 0.2847153 0.9720280 0.006993007
+
+$nominal.p.matrix.ES.A.on.B
+          B1         B2        B3         B4
+A1 0.7726894 0.05745212 0.6136553 0.23646961
+A2 0.3372190 0.20149875 0.7227311 0.54371357
+A3 0.7760200 0.10241465 0.9633639 0.03413822
+
+$nominal.p.matrix.ES.B.on.A
+          B1        B2        B3         B4
+A1 0.9100749 0.5895087 0.8684430 0.50457952
+A2 0.1099084 0.2997502 0.1407161 0.67860117
+A3 0.5553705 0.8334721 0.8176520 0.04412989
+

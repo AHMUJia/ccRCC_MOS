@@ -1,0 +1,17 @@
+patient_id	wes	drug	sex	age	treatment_group	first_line	best_RECIST	max_tumor_change	futime	fustat	pfs_days	pfs_censor	cell_membrane_pdl1_0percent	cell_membrane_pdl1_1plus_percent	cell_membrane_pdl1_2plus_percent	cell_membrane_pdl1_3plus_percent	pdl1_positive_1percent	pdl1_positive_5percent	response_category
+RCC_106	1	nivolumab	FEMALE	61	2 mg/kg	0	PR	-61	870	1	821	1	100	0	0	0	0	0	CB
+RCC_14	1	nivolumab	MALE	59	10 mg/kg-N	1	PR	-86	1025	1	541	0	100	0	0	0	0	0	CB
+RCC_50	1	nivolumab	FEMALE	63	10 mg/kg-N	1	SD	-67	982	1	86	0	91	5	3	1	1	1	CB
+RCC_93	1	nivolumab	MALE	64	10 mg/kg	0	PR	-43	684	0	500	0	100	0	0	0	0	0	CB
+RCC_102	1	nivolumab	MALE	64	0.3 mg/kg	0	SD	3	165	1	108	0	100	0	0	0	0	0	CB
+RCC_115	1	nivolumab	MALE	60	2 mg/kg	0	SD	15	366	1	87	0	100	0	0	0	0	0	CB
+RCC_117	1	nivolumab	MALE	58	10 mg/kg-N	1	SD	-10	64	1	38	1	98	2	0	0	0	0	CB
+RCC_21	1	nivolumab	MALE	64	10 mg/kg	0	SD	-13	349	1	43	1	96	4	0	0	1	0	CB
+RCC_105	1	nivolumab	MALE	64	10 mg/kg	0	PD	17	118	0	45	0	100	0	0	0	0	0	NCB
+RCC_18	1	nivolumab	MALE	68	0.3 mg/kg	0	PD	65	111	1	43	0	NA	NA	NA	NA	NA	NA	NCB
+RCC_27	1	nivolumab	MALE	59	0.3 mg/kg	0	PD	36	968	1	35	0	68	30	2	0	1	1	NCB
+RCC_41	1	nivolumab	MALE	66	10 mg/kg	0	PD	10	195	1	42	0	100	0	0	0	0	0	NCB
+RCC_73	1	nivolumab	MALE	77	2 mg/kg	0	PD	11	178	0	58	0	100	0	0	0	0	0	NCB
+RCC_90	1	nivolumab	MALE	54	0.3 mg/kg	0	PD	57	499	0	36	0	25	35	20	20	1	1	NCB
+RCC_96	1	nivolumab	FEMALE	75	2 mg/kg	0	PD	12	582	1	37	0	100	0	0	0	0	0	NCB
+RCC_99	1	nivolumab	MALE	50	2 mg/kg	0	PD	NA	41	0	41	0	97	3	0	0	1	0	NCB

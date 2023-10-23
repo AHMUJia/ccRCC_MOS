@@ -1,0 +1,54 @@
+Source Name	futime	fustat	Age	Gender	sunitinib-response
+Sample 1	427	1	58	male	SD
+Sample 10	457.5	1	51	female	CLINICAL BENEFIT
+Sample 11	549	1	62	male	CLINICAL BENEFIT
+Sample 12	1647	1	55	male	SD
+Sample 13	244	1	56	male	CLINICAL BENEFIT
+Sample 14	91.5	1	44	male	PD
+Sample 15	274.5	1	71	male	CLINICAL BENEFIT
+Sample 17	1403	0	69	male	PR
+Sample 18	91.5	0	60	female	SD
+Sample 19	61	1	61	male	PD
+Sample 2	488	1	58	female	CLINICAL BENEFIT
+Sample 20	305	1	54	female	CLINICAL BENEFIT
+Sample 21	213.5	1	61	male	SD
+Sample 22	762.5	1	55	male	PR
+Sample 24	122	1	56	male	SD
+Sample 25	701.5	1	46	male	PR
+Sample 26	30.5	1	54	male	PD
+Sample 27	335.5	1	80	female	SD
+Sample 28	366	1	56	male	CLINICAL BENEFIT
+Sample 29	152.5	1	60	male	CLINICAL BENEFIT
+Sample 3	366	0	57	male	PR
+Sample 30	335.5	1	51	male	PR
+Sample 32	274.5	0	68	male	PR
+Sample 33	244	1	58	male	PR
+Sample 34	579.5	1	68	male	SD
+Sample 35	366	1	61	male	PR
+Sample 36	274.5	1	67	male	SD
+Sample 37	335.5	1	74	male	SD
+Sample 38	183	0	64	female	SD
+Sample 4	366	1	63	male	CLINICAL BENEFIT
+Sample 40	1098	0	54	male	PR
+Sample 42	1067.5	1	71	female	PR
+Sample 43	1799.5	0	51	male	PR
+Sample 44	1738.5	0	61	female	PR
+Sample 45	457.5	1	58	female	PR
+Sample 46	244	1	67	male	PR
+Sample 47	61	1	48	male	PD
+Sample 48	183	1	56	female	SD
+Sample 49	427	1	69	male	SD
+Sample 5	1769	0	60	male	PR
+Sample 50	1159	1	54	male	PR
+Sample 51	91.5	1	49	male	PD
+Sample 52	213.5	1	68	female	SD
+Sample 53	579.5	0	66	male	SD
+Sample 54	274.5	0	72	female	SD
+Sample 55	732	1	78	male	PR
+Sample 56	244	1	54	female	SD
+Sample 58	152.5	1	71	male	SD
+Sample 59	854	0	56	male	PR
+Sample 6	457.5	0	49	female	CLINICAL BENEFIT
+Sample 7	1250.5	1	50	male	SD
+Sample 8	701.5	1	53	female	SD
+Sample 9	305	0	59	female	PR
