@@ -5,7 +5,6 @@ tumor.path <- "set your own path";setwd(tumor.path) #create dir
 data.path   <- file.path(tumor.path, "InputData")
 fig1.path    <- file.path(tumor.path, "Figure1")
 fig2.path    <- file.path(tumor.path, "Figure2")
-fig3.path    <- file.path(tumor.path, "Figure3")
 fig5.path    <- file.path(tumor.path, "Figure5")
 fig6.path    <- file.path(tumor.path, "Figure6")
 figS.path    <- file.path(tumor.path, "FigureS")
@@ -16,7 +15,6 @@ if (!file.exists(tumor.path)) { dir.create(tumor.path) }
 if (!file.exists(data.path)) { dir.create(data.path) }
 if (!file.exists(fig1.path)) { dir.create(fig1.path) }
 if (!file.exists(fig2.path)) { dir.create(fig2.path) }
-if (!file.exists(fig3.path)) { dir.create(fig3.path) }
 if (!file.exists(fig5.path)) { dir.create(fig5.path) }
 if (!file.exists(fig6.path)) { dir.create(fig6.path) }
 if (!file.exists(figS.path)) { dir.create(figS.path) }
